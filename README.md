@@ -1,4 +1,26 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/damPLJ3p)
+# %%
+from neo4j import GraphDatabase
+
+# Aura instance configuration details
+# Ensure these match the contents of your Neo4j Aura `.txt` file
+URI = "neo4j+s://a0e1a868.databases.neo4j.io"  # Use the `+s` for a secure connection
+AUTH = ('neo4j', 'd-TXsU0-hj_wYRoL2suasNSQdOOoCx86vElCmibvQGg')  # Username and password from Aura file
+
+
+# Function to verify connectivity
+def verify_connection(uri, auth):
+try:
+# Establish connection to the database
+with GraphDatabase.driver(uri, auth=auth) as driver:
+driver.verify_connectivity()  # Checks if the database is reachable
+print("Connection to Neo4j established successfully.")
+except Exception as e:
+print(f"Failed to connect to Neo4j database. Error: {e}")
+
+
+# Verify connection
+if __name__ == "__main__":
+verify_connection(URI, AUTH)[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/damPLJ3p)
 # Assignment 2 (AT2024)
 
 ## Overall objective
